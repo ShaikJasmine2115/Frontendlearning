@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <script>
+            function calc(numb,value)
+            {
+                let arr=[];
+                for(let i=1;i<=numb;i++)
+            {
+                arr.push(value+"*"+i+"="+(value*i));
+            }
+            return arr;
+            }
+            function check()
+            {
+                let x=document.getElementById("num");
+                let y=document.getElementById("dropdown");
+                let z=document.getElementById("display");
+               // z.innerHTML=parseInt(x.value);
+               if (x.value==0)
+               {
+                x.value="";
+                x.disabled=true;
+                y.disabled=true;
+                z.innerHTML="You entered zero. Reload and choose other number";
+               }
+               else 
+               {
+               let a=calc(x.value,y.value);
+               //z.innerHTML="";
+                let content="";
+               for (let t of a)      
+                 content+="<br/>"+t;
+               z.innerHTML=content;
+
+               }
+            }
+
+        </script>
+    </head>
+    <body>
+        <label for="num">Number of multiples</label>
+        <input type="number" min="0" id="num" required>
+        <label for="dropdown">Choose a number:</label>
+        <select name="nums" id="dropdown">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br>
+        <button id="result" onclick="check()">Result</button><br>
+        <span id="display"></span>
+    </body>
+</html>

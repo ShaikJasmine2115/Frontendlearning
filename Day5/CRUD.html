@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script>
+            let arr=[
+                {id:1,name:'pencil',price:5},
+                {id:2,name:'pen',price:10}
+            ];
+            function addproduct(x)
+            {
+                if (arr.includes(x))
+                {
+                    console.log("exists");
+                }
+                else{
+                arr.push(x);
+                }
+                return arr;
+            }
+            function updateproduct(y)
+            {
+
+            }      
+            function viewall()
+            {
+                return arr;
+            } 
+            function discount(a)
+            {
+                discount=[];
+                const array=arr.map(x=>{
+                    let dis=(x/100)*a;
+                    let val=x-dis; 
+                    discount.push( val )        });
+                    return discount;           
+               
+            }
+            let x={id:3,name:"eraser",price:10};
+            let y=addproduct(x);
+            console.log(y);
+            console.log(viewall());
+            let z=discount(10);
+            console.log(z);
+             </script>
+    </head>
+</html>

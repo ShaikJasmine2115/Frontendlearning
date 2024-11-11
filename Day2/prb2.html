@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>x manufacturers</title>
+    </head>
+        <body>
+
+            <h1>Order Processing System</h1>
+        
+            <!-- Form to place a new order -->
+            <div class="form-container">
+                <h2>Place a New Order</h2>
+                <form >
+                    <label for="orderId">Order ID:</label>
+                    <input type="text" id="orderId" name="orderId"required><br><br>
+        
+                    <label for="customerName">Customer Name:</label>
+                    <input type="text" id="customerName" name="customerName"required ><br><br>
+        
+                    <label for="productList">Products (comma-separated):</label>
+                    <input type="text" id="productList" name="productList"required><br><br>
+        
+                    <label for="orderTotal">Order Total ($):</label>
+                    <input type="number" id="orderTotal" name="orderTotal"min="0" step="1" required><br><br>
+        
+                    <button class="order-button" type="submit">Place Order</button>
+                </form>
+            </div>
+        
+            <!-- List of all orders -->
+            <div class="order-list-container">
+                <h2>List of All Orders</h2>
+                <table id="orderList">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer Name</th>
+                            <th>Products Ordered</th>
+                            <th>Order Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Orders will be listed here -->
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Summary of orders for a customer -->
+            <div class="summary-container">
+                <h2>Customer Order Summary</h2>
+                <label for="customerSearch">Search by Customer Name:</label>
+                <input type="text" id="customerSearch" name="customerSearch" placeholder="Enter customer name" required>
+                <button class="order-button" >Search</button>
+                <div id="orderSummary">
+                    <!-- Customer order summary will be displayed here -->
+                </div>
+            </div>
+        
