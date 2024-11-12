@@ -1,45 +1,49 @@
 <html>
     <head>
         <script>
-            let arr=[
+            let products=[
                 {id:1,name:'pencil',price:5},
                 {id:2,name:'pen',price:10}
             ];
-            function addproduct(x)
+            function addproduct(product)
             {
-                if (arr.includes(x))
+                if (!products.find(p=>product.id==p.id))
                 {
-                    console.log("exists");
+                    products.push(product);
+                    return true;
                 }
-                else{
-                arr.push(x);
-                }
-                return arr;
+                
+                return false;
             }
-            function updateproduct(y)
+            function updateproduct(product)
             {
-
+                const productToBeEdited = products.find(p=> p.id==product.id);
+    if(productToBeEdited){
+        productToBeEdited.name = product.name;
+        productToBeEdited.price = product.price;
+        return true;
+    }
+    return false;
             }      
             function viewall()
             {
-                return arr;
+                return products;
             } 
             function discount(a)
             {
-                discount=[];
-                const array=arr.map(x=>{
-                    let dis=(x/100)*a;
-                    let val=x-dis; 
-                    discount.push( val )        });
-                    return discount;           
-               
-            }
-            let x={id:3,name:"eraser",price:10};
-            let y=addproduct(x);
-            console.log(y);
+                const discounted=products.map(x=>{
+                    let discounteddupli= {...x};
+                    discounteddupli.price= x.price- ((discounteddupli.price/100)*a)
+                    return discounteddupli;              
+                })
+            return discounted;
+        }
+            console.log(addproduct({id:3,name:"eraser",price:10}));
+            console.log(addproduct({id:3,name:"eraser",price:10}));
+            console.log(updateproduct({id:3,name:"eraser",price:20}));
             console.log(viewall());
-            let z=discount(10);
-            console.log(z);
+            console.log(discount(10));
+            
              </script>
     </head>
 </html>
