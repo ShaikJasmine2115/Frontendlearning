@@ -1,0 +1,44 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Products inventory controller</h1>
+        <h2>Searching products</h2>
+        <div>
+        <label for="display">Criteria</label>
+        <input type="text" id="display"> <br> <br>
+
+        <input type="radio" id="category" name="Criteria">
+        <label for="category">Category</label> 
+
+        <input type="radio" id="price" name="Criteria">
+        <label for="category">Price</label>
+
+        <input type="radio" id="name" name="Criteria">
+        <label for="category">Name</label>
+
+        <input type="radio" id="quantity" name="Criteria">
+        <label for="category">Quantity</label> <br> <br>
+
+        <button id="search">Search</button> <br>
+         </div>
+        
+        
+         <div>
+            <h2>Sorting products</h2>
+        <select id="dropdown">
+            <option value="" disabled selected>Select something</option>
+            <option id="price">Price</option>
+            <option id="quantity">Quantity</option>
+            <option id="dateadded">Date Added</option>
+             
+        </select> <br> <br>
+        <button id="sortbtn">Sort</button> <br> <br>
+        <span id="span"></span>
+    </div>
+    <ol id="output"></ol>
+
+    </body>
+    <script src="taskfortmrw.js"></script>
+    </html>

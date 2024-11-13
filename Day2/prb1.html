@@ -4,8 +4,11 @@
     </head>
     <body>
         <h1>X manufacturers</h1>
-        <b>Available products</b><hr>
+        <button id="view">View all products</button> <br> 
+        <span id="dx"></span>
+        <ol id="display"></ol>
        <!--
+        <b>Available products</b><hr>
          <ul>
             <li id="p1">a</li>
             <li id="p2">b</li>
@@ -13,7 +16,7 @@
         </ul>-->
       
          <!--existing products -->
-        <table>
+        <!--<table>
             <tr>
                 <th>Item</td>
                 <th>Price</td>
@@ -30,24 +33,33 @@
                 <td>c</td>
                 <td>$7</td>
             </tr>
-        </table> <hr>
-        <b>Add new product</b><br><BR>
-            <FORM>
+        </table>--> <hr>
+        <h2>Add new product</h2>
+          
         <label for ="pname">Product name</label> 
-        <input id=pname; type="text" required>
+        <input id="pname" type="text" required>
+
         <label for ="pprice">Product price</label> 
-        <input id=pprice; type="text"></FORM><BR>
-        <button >Add product</button>
+        <input id="pprice" type="text"><BR> <br>
+
+        <button id="addbtn">Add product</button> <br>
+        <span id="span"></span>
         <hr>
-        <b>Update price</b>
-        <input type="text">
+        <h2>Update the product</h2>
+        <b>Update price of </b>
+        <input id="updatename" type="text" placeholder="Enter item name"> <br> <br>
+        <b>Update price to</b>
+        <input id="updateprice" type="text" placeholder="Enter price "> <br> <br>
+        <button id="updatebtn">Update product's price</button> <br>
+
         <hr>
-        <b>Discounted products</b><br>
+        <h2>Discounted products</h2>
         <i>Percentage</i>
       
-       <input id="y"; type="text">
-       <button type="submit">Apply</button>
+       <input id="getdiscount"; type="text"> <br> <br>
+       <button id="discountbtn" type="submit">Apply</button>
      
 
     </body>
+    <script src="prb1.js"></script>
 </html>
