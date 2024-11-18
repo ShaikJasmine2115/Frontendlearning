@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmaceutical Dropdown Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        select, input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Manage Medications</h2>
+        <label for="medications">Select Medication:</label>
+        <select id="medications">
+            <option value="">--Select a Medication--</option>
+            <option value="Aspirin">Aspirin</option>
+            <option value="freak"></option>
+        </select>
+
+        <br>
+        <input type="text" id="newMedication" placeholder="Add new medication">
+        <button onclick="addMedication()">Add Medication</button>
+        <button onclick="removeMedication()">Remove Selected Medication</button>
+    </div>
+
+    <script>
+        function addMedication() {
+            const newMedication = document.getElementById('newMedication').value;
+            const select = document.getElementById('medications');
+
+            if (newMedication) {
+                const option = document.createElement('option');
+                option.value = newMedication;  // our progammer related logic
+                option.textContent = newMedication;//meant for end user to identify it
+                select.appendChild(option);
+                document.getElementById('newMedication').value = ''; // Clear the input
+            } else {
+                alert('Please enter a medication name.');
+            }
+        }
+
+        function removeMedication() {
+            const select = document.getElementById('medications');
+            console.log(select.selectedIndex,"this is value");
+            select.remove(select.selectedIndex);
+            
+        }
+    </script>
+</body>
+</html>

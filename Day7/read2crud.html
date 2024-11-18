@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmaceutical Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 5px 0;
+            cursor:pointer;
+        }
+        .selected {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Medication Management</h2>
+        <input type="text" id="medicationInput" placeholder="Enter medication name">
+        <button onclick="addMedication()">Add Medication</button>
+        <button onclick="updateMedication()">Update Selected Medication</button>
+        <button onclick="removeMedication()">Remove Selected Medication</button>
+        <button onclick="clearAll()">Delete All Medications</button>
+        <h3>All Medications:</h3>
+        <ul id="medicationList"></ul>
+    </div>
+
+    <script>
+        // Array to store medications
+        const medications = [];
+
+        function addMedication() {
+            const input = document.getElementById('medicationInput');
+            const medicationName = input.value.trim();
+
+            if (medicationName) {
+                // Check for uniqueness
+                if (medications.includes(medicationName)) {
+                    alert('This medication name already exists. Please enter a unique name.');
+                } else {
+                    medications.push(medicationName); // Add to array
+                    updateMedicationList(); // Update the displayed list
+                    input.value = ''; // Clear the input field
+                }
+            } else {
+                alert('Please enter a medication name.');
+            }
+        }
+
+        function updateMedication() {
+            const input = document.getElementById('medicationInput');
+            const medicationName = input.value.trim();
+            const selectedItems = document.querySelectorAll('#medicationList .selected');
+
+            if (selectedItems.length > 0 && medicationName) {
+                // Check for uniqueness in the update
+                const indexToUpdate = Array.from(selectedItems).map(item => {
+                    return Array.from(item.parentNode.children).indexOf(item);
+                });
+
+                if (medications.includes(medicationName) && !indexToUpdate.some(index => medications[index] === medicationName)) {
+                    alert('This medication name already exists. Please enter a unique name.');
+                } else {
+                    selectedItems.forEach(item => {
+                        const index = Array.from(item.parentNode.children).indexOf(item);
+                        medications[index] = medicationName; // Update the array
+                        item.textContent = medicationName; // Update the displayed name
+                    });
+                    input.value = ''; // Clear the input field
+                }
+            } else if (selectedItems.length === 0) {
+                alert('Please select a medication to update.');
+            } else {
+                alert('Please enter a medication name to update.');
+            }
+        }
+
+        function removeMedication() {
+            const selectedItems = document.querySelectorAll('#medicationList .selected');
+            selectedItems.forEach(item => {
+                const index = Array.from(item.parentNode.children).indexOf(item);
+                medications.splice(index, 1); // Remove from array
+                item.remove(); // Remove from displayed list
+            });
+        }
+
+        function clearAll() {
+            medications.length = 0; // Clear the array
+            updateMedicationList(); // Update the displayed list
+        }
+
+        function updateMedicationList() {
+            const list = document.getElementById('medicationList');
+            list.innerHTML = ''; // Clear current list
+            medications.forEach(medication => {
+                const listItem = document.createElement('li');
+                listItem.textContent = medication;
+                listItem.onclick = function() {
+                    this.classList.toggle('selected');
+                    document.getElementById('medicationInput').value = this.textContent; // Populate input for updating
+                };
+                list.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>

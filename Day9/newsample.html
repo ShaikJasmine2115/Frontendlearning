@@ -1,0 +1,88 @@
+<html>
+<script>
+ 
+    class Task
+    {
+        constructor(taskid,taskname,taskstatus)
+        {
+            this.taskid=taskid; //12
+            this.taskname=taskname; //abc
+            this.taskstatus=taskstatus; //running
+ 
+        }
+   
+    }
+ 
+    class TaskLogic
+    {
+        constructor()
+        {
+            this.tasks=[];
+        }
+ 
+        addTask(newTask)
+        {  const existingTask = this.tasks.find(task => task.taskid === newTask.taskid);
+            if(existingTask){
+                return "not added";
+            }
+            else{
+                this.tasks.push(newTask);
+            return "added";
+            }
+              //check wheher taskid is presnet in the array or not
+            //if present return "not added"      
+        }
+ 
+        getAllTasksBasedonStatus(statusgiven)
+        {
+           // return array whose status matches givenstatus
+           return this.tasks.filter(task => task.taskstatus === statusgiven);
+        }
+ 
+        updatetask(updatedtask)
+        {   
+                /*
+                locate taskid in the array and update that particualr task object
+                in array with updatedtask. taskname and status
+                */
+                   const taskIndex = this.tasks.findIndex(task => task.taskid === updatedtask.taskid);
+                    // If task is found, update its taskname and status
+                    if (taskIndex !== -1) {
+                        this.tasks[taskIndex].taskname = updatedtask.taskname;
+                        this.tasks[taskIndex].taskstatus = updatedtask.taskstatus;
+
+                    } else {
+                        console.log("Task not found.");
+                    }
+        }
+        getAllTasks()
+        {
+            return this.tasks;
+        }
+    }
+ 
+    let y =new Task(12,"abc","running");
+    let yy=new Task(10,"ghi","bicycle");// task object is created
+    let tl =new TaskLogic();  // tasklogic object is created
+    let t = tl.addTask(y); 
+    let tm= tl.addTask(yy);
+    let scrap = tl.getAllTasks(); //getAllTasks is an operation on Tasklogic.. and return type
+    // //is an array of Task
+     console.log(scrap);
+            //   console.log(t);
+            //   console.log(tm); // addtask is an operation on TaskLogic hence it needs a
+                //tasklogic object.. addtask input argument is a task object , return type is a string
+    let may1= tl.getAllTasksBasedonStatus("running");
+   console.log(may1);
+    let z =new Task(12,"def","walking");
+    tl.updatetask(z);
+    let scrap2 = tl.getAllTasks(); 
+    console.log(scrap2);//getAllTasks is an operation on Tasklogic.. and return type
+    // //is an array of Task
+     //console.log(scrap2);
+    
+                 /*   let scrap1 = tl.getAllTasks(); //getAllTasks is an operation on Tasklogic.. and return type
+                //is an array of Task
+                console.log(scrap); */
+ </script>
+ </html>
