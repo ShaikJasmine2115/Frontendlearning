@@ -45,7 +45,7 @@
                 locate taskid in the array and update that particualr task object
                 in array with updatedtask. taskname and status
                 */
-                   const taskIndex = this.tasks.findIndex(task => task.taskid === updatedtask.taskid);
+                const taskIndex = this.tasks.findIndex(task => task.taskid === updatedtask.taskid);
                     // If task is found, update its taskname and status
                     if (taskIndex !== -1) {
                         this.tasks[taskIndex].taskname = updatedtask.taskname;
@@ -55,6 +55,7 @@
                         console.log("Task not found.");
                     }
         }
+                   
         getAllTasks()
         {
             return this.tasks;
@@ -76,6 +77,7 @@
    console.log(may1);
     let z =new Task(12,"def","walking");
     tl.updatetask(z);
+    
     let scrap2 = tl.getAllTasks(); 
     console.log(scrap2);//getAllTasks is an operation on Tasklogic.. and return type
     // //is an array of Task
