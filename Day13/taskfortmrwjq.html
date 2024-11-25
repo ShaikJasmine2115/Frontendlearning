@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management - Manufacturing</title>
+  <!-- <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .product-list {
+      margin-top: 20px;
+    }
+    .product-item {
+      background-color: #e9ecef;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product-item p {
+      margin: 0;
+      font-size: 1.2em;
+    }
+    .product-item button {
+      padding: 5px 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .product-item button:hover {
+      background-color: #218838;
+    }
+    .add-product {
+      margin-top: 20px;
+    }
+    .total-value {
+      margin-top: 20px;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+  </style> -->
+</head>
+<body>
+
+  <div class="container">
+    <h2>Inventory Management - Manufacturing</h2>
+
+    <!-- Add Product Form -->
+    <div class="add-product">
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" placeholder="Product Name">
+      <label for="productQuantity">Quantity:</label>
+      <input type="number" id="productQuantity" placeholder="Quantity" min="1">
+      <label for="productPrice">Price:</label>
+      <input type="number" id="productPrice" placeholder="Price" min="0" step="0.01">
+      <button id="addProductButton">Add Product</button>
+    </div>
+
+    <!-- Product List -->
+    <div class="product-list" id="productList">
+      <!-- Dynamically added product items will appear here -->
+    </div>
+
+    <!-- Total Inventory Value -->
+    <div class="total-value">
+      <strong>Total Inventory Value:</strong> $<span id="totalValue">0.00</span>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      let totalInventoryValue = 0;
+
+      // Function to update the total inventory value
+      function updateTotalValue() {
+        $('#totalValue').text(totalInventoryValue.toFixed(2));
+      }
+
+      // Add a new product to the list
+      $('#addProductButton').click(function() {
+        const productName = $('#productName').val();
+        const productQuantity = parseInt($('#productQuantity').val(), 10);
+        const productPrice = parseFloat($('#productPrice').val());
+
+        if (productName && productQuantity && productPrice >= 0) {
+          const productHtml = `
+            <div class="product-item">
+              <p><strong>${productName}</strong> - Quantity: ${productQuantity} - Price: $${productPrice.toFixed(2)}</p>
+              <button class="removeProductButton">Remove</button>
+              <button class="updateQuantityButton">Update Quantity</button>
+            </div>
+          `;
+          
+          // Add the new product to the list
+          $('#productList').append(productHtml);
+
+          // Update the total inventory value
+          totalInventoryValue += productQuantity * productPrice;
+          updateTotalValue();
+
+          // Clear input fields after adding
+          $('#productName').val('');
+          $('#productQuantity').val('');
+          $('#productPrice').val('');
+        }
+      });
+
+      // Delegate click event for "Remove" button (since it's added dynamically)
+      $('#productList').on('click', '.removeProductButton', function() {
+        const productItem = $(this).closest('.product-item');
+        const priceText = productItem.find('p').text();
+        const quantity = parseInt(priceText.split('Quantity: ')[1].split(' - ')[0], 10);
+        const price = parseFloat(priceText.split('Price: $')[1]);
+
+        // Subtract product value from total
+        totalInventoryValue -= quantity * price;
+        updateTotalValue();
+
+        // Remove the product item from the list
+        productItem.remove();
+      });
+
+      // Delegate click event for "Update Quantity" button (since it's added dynamically)
+      $('#productList').on('click', '.updateQuantityButton', function() {
+                        console.log("think what to write here")
+        
+        }
+      );
+
+    });
+  </script>
+
+</body>
+</html>
