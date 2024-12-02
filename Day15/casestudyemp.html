@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" href="casestudyemp0.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Data Management System</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <div class="welcome">
+        <p>Welcome, User!</p>
+    </div>
+    <h1>Search Page</h1>
+    <form>
+        <table>
+            <tr>
+                <td>Employee ID:</td>
+                <td><input type="text" name="employee_id"></td>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="first_name"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="last_name"></td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td><input type="date" name="dob"></td>
+            </tr>
+            <tr>
+                <td>Grade:</td>
+                <td>
+                    <select name="grade">
+                        <option value="M1">M1</option>
+                        <option value="M2">M2</option>
+                        <option value="M3">M3</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="center-container">
+        <button class="search-button">Search</button>
+      </div>
+      
+   
+    
+    <div class="search-results">
+        <h2>Search Results</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5001</td>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>1990-01-01</td>
+                    <td>M1</td>
+                </tr>
+                <tr>
+                    <td>5002</td>
+                    <td>Jane</td>
+                    <td>Smith</td>
+                    <td>1992-02-02</td>
+                    <td>M2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+    <p>Please select a file to upload <button>Choose File</button> No file chosen</p> 
+    <button> Upload Data</button><br>
+    <div class="container">
+         <a href="#">Return to Main Menu</a>
+        <a href="#">Logout</a>
+    </div>
+
+
+    <footer>
+        &copy; 2024 Company Name. All Rights Reserved.
+    </footer>
+</body>
+</html>
+<!-- 
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Search Options</title>
+    <link rel="stylesheet" type="text/css" href="casestudyemp0.css">
+
+</head>
+ 
+<body>
+    <div class="center-container">
+    <form>
+        <h2>Search Options</h2>
+        <label>Employee Id<span>*</span>
+        </label> <input type="text"><br><label>First Name<span>*</span>
+        </label>
+        <input type="text">
+        <span>(Use * for wild Card search)</span><br>
+        <label>Last Name<span>*</span>
+        </label>
+        <input type="text">
+        <span>(Use * for wild Card search)</span><br>
+        <label>Date of Birth</label>
+        <select name="grade">
+            <option>=</option>
+            <option>></option>
+            <option>></option>
+        </select>
+        <input type="date">
+        <span>(mm/dd/yyy)</span>
+        <br>
+        <label>Date of joining</label>
+        <select name="grade">
+            <option>=</option>
+            <option>></option>
+            <option>></option>
+        </select>
+        <input type="date">
+        <span>(mm/dd/yyy)</span>
+        <br>
+        <label for=" grade">Grade</label>
+        <select name="grade" id="grades">
+            <option>M1</option>
+            <option>M2</option>
+        </select>
+        <p>* atleast one field should be selected</p>
+    </form>
+</div>
+    <button>Search</button>
+    <div>
+        <h2>Search Results</h2>
+        <button>Export to CSV</button>
+        <table>
+            <tr>
+                <th>Employee Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Date of Joining</th>
+                <th>Grade</th>
+                <th>View</th>
+                <th>Modify</th>
+            </tr>
+            <tr>
+                <td>500943</td>
+                <td>Vijay</td>
+                <td>V</td>
+                <td>11/11/1111</td>
+                <td>22/22/2222</td>
+                <td>M2</td>
+                <td>
+                    <a>View</a>
+                </td>
+                <td>
+                    <a>Modify</a>
+                </td>
+            </tr>
+            <tr>
+                <td>50000</td>
+                <td>Xyz</td>
+                <td>Abc</td>
+                <td>22/22/2222</td>
+                <td>33/33/3333</td>
+                <td>M1</td>
+                <td>
+                    <a>View</a>
+                </td>
+                <td>
+                    <a>Modify</a>
+                </td>
+            </tr>
+        </table>
+    </div> <a href="#">Return to Main Menu</a>
+     <h5>Welcome, User!</h5> 
+    
+</body>
+ 
+</html>
+ 
+  -->
