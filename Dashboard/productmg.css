@@ -21,6 +21,17 @@ a {
     max-width: 1200px;
     margin: 0 auto;
 }
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+label{
+    width: 6rem;
+    text-align: left;
+    padding-top: 15px;
+}
 
 header {
     background-color: #282c34; /* New darker header color */

@@ -64,6 +64,19 @@ header button:hover {
     padding: 20px;
     font-size: 12px;
 }
+.row{
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+}
+label{
+    width: 6rem;
+    text-align: left;
+    padding-top: 15px;
+}
+#productDropDown{
+    width:10rem;
+}
 #addOrder, #orderDetails {
     background: #f7f8fa; /* Softer background */
     padding: 20px;

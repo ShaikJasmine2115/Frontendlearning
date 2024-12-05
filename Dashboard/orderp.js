@@ -1,17 +1,10 @@
-//========================================Declarations=====================================================
+
 class Product{
     constructor(){
         this.productsArray = [
-            {id :1, name:"Phone",price:2000,},
-            {id :2, name:"Charger", price:2000},
-            {id :3, name:"Headphones", price:1000},
-            {id :4, name:"Airpods",price:2000 },
-            {id :5, name:"Neckband", price:900},
-            {id :6, name:"Coolers", price:100},
-            {id :7, name:"Laptop",price:2000 },
-            {id :8, name:"Watch", price:2000},
-            {id: 9, name:"Pen", price:10},
-            {id: 10,name:"Notebook", price:100}
+            {id :1, name:"Baklava",price:400 },
+            {id :2, name:"Kunafa", price:350},
+            {id: 3, name:"Croissant", price:200}
         ];
     }
 }
