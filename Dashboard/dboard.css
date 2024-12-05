@@ -1,0 +1,82 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+/* Body and Layout Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+ 
+/* Header Styling */
+header {
+    background-color: #333;
+    color: #f7e290;
+    text-align: center;
+    padding: 20px 0;
+}
+ 
+header h1 {
+    margin: 0;
+}
+ 
+/* Main Content Styling */
+main {
+    padding: 20px;
+}
+ 
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 11em;
+}
+ 
+.grid-item {
+    background-color: #4CAF50;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    max-width: 20em;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+ 
+.grid-item:hover {
+    transform: translateY(-5px);
+    background-color: #45a049;
+}
+ 
+.grid-item h2 {
+    margin: 0;
+}
+.grid-image {
+    width: 100%; /* Make the image take up the full width of the grid item */
+    height: auto; /* Maintain the aspect ratio of the image */
+    margin-top: 20px; /* Adds space between the text and the image */
+    border-radius: 8px; /* Optional: Rounds the image corners to match the grid item */
+}
+ 
+ 
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

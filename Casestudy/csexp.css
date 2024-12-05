@@ -1,0 +1,477 @@
+body {  
+  font-family: Arial, sans-serif; 
+   margin: 0;    
+   padding: 0;    
+   background-color: #f9f9f9;    
+   padding-top: 50px; /* Adjust to header height */    
+   padding-bottom: 50px; /* Adjust to footer height */
+}
+header {    
+background-color: #08412b;    
+color: white;    
+padding: 15px 20px;    
+display: flex;        
+align-items: center;    
+position: fixed;    
+top: 0;    
+width: 100%;       
+height: 50px; /* Fixed height */    
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}/* Header title */
+header h1 {        
+margin-left: 400px;    
+text-align: center;    
+font-size: 24px;
+}
+/* Modal for logout confirmation */
+.logout-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent dark background */
+  justify-content: center; /* Center modal horizontally */
+  align-items: center; /* Center modal vertically */
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+/* Modal content styling */
+.logout-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Close button for modal */
+.logout-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Logout and cancel buttons */
+.logout-buttons {
+  margin-top: 20px;
+}
+
+.cancel-button, .logout-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cancel-button {
+  background-color: white;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+footer {    
+position: fixed;    
+bottom: 0;    
+width: 100%;    
+text-align: center;    
+padding: 10px;    
+font-size: 0.9em;    
+color: white;    
+background-color: #08412b;    
+z-index: 1000;    
+box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+}/* Content adjustments to avoid overlap */
+
+form, .upl {    
+margin: 20px;    
+padding-top: 10px;
+}
+
+.upl{    
+text-align: left;    
+margin-top: 20px;    
+margin-left: 20px;    
+font-size: 18px;    
+font-family: Arial, sans-serif;
+}
+form {    
+background-color: #cbd2ce;    
+padding: 20px;    
+border: 1px solid #ccc;    
+border-radius: 5px;    
+width: 400px;    
+margin: 60px auto 10px;
+
+}
+form table {    
+width: 100%;    
+border-collapse: separate;    
+border-spacing: 10px;
+}
+form table td {    
+padding: 5px;    
+vertical-align: middle;
+}
+form input[type="text"], form input[type="date"], form select {
+    width: 100%;    
+    padding: 5px;    
+    border: 1px solid #ccc;    
+    border-radius: 3px;    
+    box-sizing: border-box;
+}
+.menu-icon {    
+float: left;    
+font-size: 24px;    
+cursor: pointer;    
+padding: 10px;    
+color: #fff;
+}
+.sidenav {
+  height: 100%;
+  width: 0; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #08412b;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  transition: 0.3s; /* Transition effect for opening and closing */
+  padding-top: 60px; /* Space for the close button */
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px; /* Padding for links */
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block; /* Make links block elements */
+  transition: 0.3s; /* Transition effect for links */
+}
+
+.sidenav1 a:hover {
+   background-color: #90c19b;/* Change background on hover */
+  color: #fff; /* Change text color on hover */
+   text-decoration: none;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px; /* Position close button */
+  font-size: 36px; /* Size of the close button */
+  margin-left: 50px; /* Space from the left */
+}
+.profile {    
+text-align: center;    
+margin-bottom: 20px;
+}
+.profile-img {    
+width: 60px;    
+height: 60px;    
+border-radius: 50%;    
+margin-bottom: 10px;
+}
+.user-name {    
+color: white;    
+font-size: 18px;
+}/* Navigation Links */
+nav {   
+ margin: 0;
+}
+nav a {    
+float: left;    
+color: white;    
+text-decoration: none;    
+margin-left: 20px;    
+font-size: 18px;
+}
+nav a:hover {    
+text-decoration: underline;
+}
+
+.search-results {
+  display: none; /* Hide the container */
+}
+
+.search-results.visible {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center-align items horizontally */
+  justify-content: flex-start; /* Align items to the top */
+  gap: 20px; /* Space between elements */
+  padding: 20px; /* Padding around the container */
+  border: 1px solid #ddd; /* Optional border for the container */
+  background-color: #f9f9f9; /* Show the container when the class is added */
+}
+
+.search-results h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center; /* Center the heading text */
+}
+
+/* Table styling */
+#employee-table {
+  width: 100%; /* Full width for the table */
+  border-collapse: collapse; /* Merge borders for cells */
+  text-align: left; /* Align text to the left */
+}
+
+#employee-table th {
+  padding: 10px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+}
+
+#employee-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#back-from-serachresults {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color:#08412b ; /* Blue background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#back-from-serachresults:hover {
+  background-color:#1d9236 ; /* Darker blue on hover */
+}
+
+.employee-modal {
+  position: fixed ; /* Fix it to the screen */
+  top: 0;
+  left: 25%;
+  width: 100%; /* Full-screen width */
+  height: 0%; /* Full-screen height */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: none; /* Hidden by default */
+  z-index: 9999; /* Ensures it is above other elements */
+  justify-content: center; /* Centers the modal */
+  align-items: center; /* Vertically centers the modal */
+}
+
+.employee-modal-content {
+  background-color: white; /* White background for the modal */
+  padding: 5px;
+  border-radius: 8px;
+  width: 50%; /* Adjust the width as needed */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional shadow */
+}
+.employee-modify-title{
+padding-top: 0%;
+padding-bottom: 0%;
+}
+.employee-close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #000;
+}
+
+.employee-modal-content h2 {
+  text-align: center;
+}
+
+.employee-modify-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.employee-modify-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.employee-save-button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.employee-save-button:hover {
+  background-color: #45a049;
+}
+
+.employee-required {
+  color: red;
+}
+
+.center-container {    
+display: flex;    
+justify-content: center; /* Horizontal centering */    
+align-items: center;    /* Vertical centering */    
+height: 10vh;          /* Full viewport height */    
+margin: 0;              /* Remove default margins */    
+background-color: #f9f9f9; /* Optional: Set a background color */  
+}    
+.search-button {    
+padding: 10px 20px;    
+font-size: 16px;    
+color: white;    
+border: none;    
+border-radius: 5px;    
+cursor: pointer;    
+transition: background-color 0.3s ease;  
+}    
+.search-button:hover {    
+background-color: #1d9236;  
+}  
+
+.search-results {    
+width: 80%;    
+margin: 20px auto;
+}
+.search-results h2{    
+text-align: center;    
+font-size: 26px;
+} 
+.container-searchresults{
+  display: none;
+  border-radius: 8px;
+  /* box-shadow: #666666; */
+}
+.container-searchresults table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+.container-searchresults th, .container-searchresults td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}  
+.flex-row:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+.flex-row div:nth-child(odd), #output-header div:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+a {    
+color:#08412b ;    
+text-decoration: none;    
+font-weight: bold;   
+ margin-bottom: 20px;    
+ display: inline-block;   
+  transition: color 0.3s;
+}
+a:hover {    
+    color:#90c19b ;    
+    text-decoration: underline;
+}
+p {    
+margin: 20px 0;    
+color: #333;
+}
+button {    
+padding: 10px 20px;    
+background-color: #08412b;    
+color: white;    
+border: none;    
+border-radius: 5px;    
+cursor: pointer;    
+transition: background-color 0.3s, transform 0.2s;
+}
+button:hover {    
+background-color: #1d9236;    
+transform: scale(1.05);
+}
+/* button:last-of-type {    
+margin-top: 10px;    
+display: block;    
+width: auto;    
+color: #fff;   
+}  */
+.container{    
+display: flex;    
+flex-direction: column;    
+align-items: center;  
+}
+/* Popup Styles */
+/* Popup Styles */
+#popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Overlay Styles */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      justify-content: space-around;
+}
+
+.logout-button {
+  background-color: red; /* Red button for logout */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners (optional) */
+  font-size: 16px;
+  width: 30%;
+}
+
+.close-button {
+  background-color: #c3bcbc; /* Light gray for close button */
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners (optional) */
+  font-size: 16px;
+  height: 30%;
+}
+
+/* Add hover effect (optional) */
+.logout-button:hover {
+  background-color: darkred;
+}
+
+.close-button:hover {
+  background-color: #bbb;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Product Inventory Manager</title>
+    <script src="productmg.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- <div class="wrapper"> -->
+        <header>
+            <div class="container">
+            <h1>Product Management System</h1>
+            </div>
+        </header>
+        <main>
+            
+            <div id="container">
+                <div id="addCon">
+                    <h3>Add a product</h3>
+                    <label for="name">Product name:</label>
+                    <input type="text" id="name" required><br>
+            
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" required><br>
+            
+                    <label for="id">Product Id:</label>
+                    <input type="number" id="id" required> <br>
+                    
+                    <button id="add"> Add </button>
+                    <button type="submit" id="update"> Update </button>
+                    <br>
+                    <span id="message-add"></span>
+                </div>
+    
+                <div id="applyCon">
+                    <h3>Apply Discount</h3>
+    
+                    <label for="percent">Discout Percentage:</label>
+                    <input type="number" id="percent">
+                    <button type="submit" id="applyDiscount"> Apply Discount </button><br>   
+                    <span id="message-dis"></span>
+    
+                </div>
+                <div id="resultCon">
+                    <h3>Products</h3>
+                    <table id="disp-table">
+                        <thead>
+                            <tr>
+                                <td>Id</td>
+                                <td>Name</td>
+                                <td>Price</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <!-- <ul id="resultList"></ul> -->
+                </div>
+            </div>
+        </main>
+        <footer>   
+            <div class="container">
+            <p>© 2024 Annalect India (Omnicom Media Group). All rights reserved.</p> 
+            </div> 
+        </footer>
+    <!-- </div> -->
+<link rel="stylesheet" href="productmg.css">
+</body>
+</html>

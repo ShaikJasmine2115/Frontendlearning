@@ -32,16 +32,7 @@
             display: block;
             margin: 0 auto;
             margin-top: 20px;
-           /* padding: 15px;  Padding inside button 
-            content: center;
-            margin-left: 100px;
-           /*  background-color: #2c3e50; Dark background for button */
-           /* color: rgb(113, 88, 88); /* White text 
-            /*  border: none;  Remove default border 
-            border-radius: 4px;Rounded corners for button */
-            /* Pointer cursor for button */
-            /* Font size for button */
-            /* Margin to separate from input */
+           
         }
         button:hover {
             cursor: pointer ;   
@@ -52,9 +43,7 @@
             float: inline-end;
          margin-right:  100px;
         }
-        
-         /*.viewpd {
-           background-color: #34495e;  Darker background on hover} */
+   
         h2{
             padding: 5px;
             text-align: center;
@@ -83,49 +72,13 @@
         </div>
         
         <button class="viewpd" id="view">View all products</button>
-  
-       <!-- <table id="data-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>ITEM</th>
-                <th>PRICE</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>-->     
+    
        <div class="disp">
         <br>
         <span id="dx"></span>
     </div>
        <ul id="display"></ul>
-    
-          <!--<ul>
-             <b>Available products</b><hr>
-            <li id="p1">a</li>
-            <li id="p2">b</li>
-            <li id="p3">c</li>
-        </ul>
-      
-         existing products -->
-        <!--<table>
-            <tr>
-                <th>Item</td>
-                <th>Price</td>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>$5</td>
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>$4</td>
-            </tr>
-            <tr>
-                <td>c</td>
-                <td>$7</td>
-            </tr>
-        </table>--> <hr>
+    <hr>
         <h2>Add new product</h2>
 
        
@@ -167,7 +120,7 @@
     </body>
     <script>
         window.onload = function() {
-            // Check if the user is logged in
+           
             if (!sessionStorage.getItem("loggedIn")) {
                 document.getElementById("loginError").innerText = "You must be logged in to perform this action.";
                 setTimeout(function() {

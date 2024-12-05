@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.container h1{
+   margin-left: 30%;
+}
+main {
+    flex: 1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #282c34; /* New darker header color */
+    color: #f7e290; /* Bright accent color */
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+header nav ul li {
+    padding: 0.5rem 1rem;
+}
+
+header nav ul li a {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #a1caf1; /* Light blue hover effect */
+}
+
+header button {
+    background-color: #a1caf1;
+    color: #282c34;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+header button:hover {
+    background-color: #ffc1e3; /* Light pink hover */
+}
+
+#container {
+    display: flex;
+    justify-content: space-around;
+    align-items: safe;
+    padding: 20px;
+    font-size: 12px;
+}
+
+#addCon, #applyCon, #resultCon {
+    background: #f7f8fa; /* Soft off-white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#addCon {
+    width: 35%;
+}
+
+#applyCon, #resultCon {
+    width: 30%;
+}
+
+#messageDiv {
+    color: #d9534f; /* Bootstrap-style red */
+}
+
+#container input,
+button,
+select {
+    margin: 8px 0;
+    padding: 8px;
+    font-size: 12px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+#container ul {
+    list-style: none;
+    padding: 0;
+    width: auto;
+    height: max-content;
+}
+
+#container li {
+    padding: 5px 0;
+    cursor: pointer;
+    border: 2px solid #ffcc00; /* Yellow border */
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.selected {
+    background-color: #4caf50; /* Fresh green highlight */
+    color: white;
+}
+
+
+footer {    
+    position: fixed;    
+    bottom: 0;    
+    width: 100%;    
+    text-align: center;    
+    padding: 10px;    
+    font-size: 0.9em;    
+    color: #ffcc00;    
+    background-color: #282c34;    
+    z-index: 1000;    
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #a1caf1; /* Light blue header */
+    color: #282c34;
+}
+/* Styling the form container */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    gap: 15px; /* Add space between each form group */
+}
+
+/* Styling for the label and input container */
+form .form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Styling the labels */
+form .form-group label {
+    flex: 1; /* Allow labels to take up equal space */
+    text-align: right;
+    margin-right: 10px; /* Space between label and input */
+    font-size: 14px;
+}
+
+/* Styling the input fields */
+form .form-group input {
+    flex: 2; /* Allow inputs to take more space */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}

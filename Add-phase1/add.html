@@ -33,10 +33,21 @@
             cursor: pointer; /* Pointer cursor for link */
         }
         body { font-family: Arial, sans-serif;  margin: 0px; height: 100vh; position: relative;} /*margin: 10px;*/
-        .container { width: 300px; margin: 30px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        .container {  margin: 30px auto;  border: 1px solid #ccc; 
+    width: 350px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+        .container h2{text-align: center;}
         input[type="number"], button { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
-        button { background-color: #4CAF50; color: white; border: none; }
-        button:hover { background-color: #45a049; }
+        button { background-color: #274171; color: white; border: none; width: 30%; justify-content: space-around; }
+        button:hover { background-color: #697282; }
+        .inputvalues{width:50%; margin-left: 20%; border: #2c3e50;} 
+       
+        
         .error { color: red; }
         footer {
             
@@ -62,8 +73,10 @@
     <div class="container">
         <h2>Add Two Numbers</h2>
         <p id="loginError" class="error"></p>
+        <div class="inputvalues">
         <input type="number" id="num1" placeholder="Enter first number">
         <input type="number" id="num2" placeholder="Enter second number">
+    </div>
         <button onclick="addNumbers()">Add</button>
         <p id="result"></p>
         <!--<a href="logout1.html">Logout</a>-->

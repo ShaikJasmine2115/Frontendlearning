@@ -5,15 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post-Login Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif; /* Font for the body */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-            background-color: #f9f9f9; /* Light background color */
-            display: flex; /* Use flexbox for layout */
-            flex-direction: column; /* Column direction */
-            height: 100vh; /* Full viewport height */
-        }
+         body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0; 
+            background-color: #f9f9f9;
+            display: flex; 
+            flex-direction: column; 
+            height: 100vh; 
+        } 
+.menu-item {
+    background-color: #274171;
+    width:30%;
+    margin: 10px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-left: 33%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    background-color: #697282;
+}
 
         header {
             background-color: #2c3e50; /* Dark background */
@@ -99,15 +122,6 @@
         };
         // Sample data for search results
         const data = [
-            // "Lathe Machine",
-            // "Milling Machine",
-            // "Drilling Machine",
-            // "CNC Machine",
-            // "Surface Grinder",
-            // "Band Saw",
-            // "Welding Machine",
-            // "3D Printer",
-            // "Laser Cutter"
             "Add numbers",
             "Problem statement 1",
             "Problem statement 2"
@@ -130,11 +144,7 @@
                 resultsContainer.textContent = 'No results found.'; // Message if no results match
             }
         }
-
-        // Function to handle logout
         function logout() {
-            // Here you can implement the actual logout logic, e.g., clearing session, redirecting
-            //alert("You have logged out."); // Example logout action
             window.location.href = "logout1.html"; // Redirect to logout page
         }
        
@@ -151,24 +161,16 @@
             Welcome, User! 
             <span class="logout-link" onclick="logout()">Logout</span>
         </div>
-
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search for machinery..." />
-            <input type="button" value="Search" onclick="search()" />
+        <div class="menu-item">
+            <a href="add.html">Add Numbers</a>
+        </div>
+        <div class="menu-item">
+            <a href="productmg.html">Product Management System</a>
+        </div>
+        <div class="menu-item">
+            <a href="orderp.html">Order Processing System</a>
         </div>
         
-        <div class="results" id="results">
-            <!-- Search results will be displayed here -->
-        </div>
-        <div>
-            <a href="add.html">Add numbers</a>
-        </div>
-        <div>
-            <a href="prb1.html">Prodcut Management system</a>
-        </div>
-        <div>
-            <a href="prb2.html">Order processing system</a>
-        </div>
     </div>
 
     <footer>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General body styling */
+body {
+    font-family: 'Poppins', Arial, sans-serif; /* Modern font for better aesthetics */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(/Casestudy/loginbg.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-color: #cadbd4;
+    color: #333;
+}
+
+/* Styling for the login container */
+.login-container {
+    
+    width: 350px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Header styling */
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #08412b;
+    text-transform: uppercase;
+}
+
+/* Input fields styling */
+.login-container input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+    border-color: #2a9d8f;
+    box-shadow: 0 0 5px rgba(42, 157, 143, 0.5);
+}
+
+/* Button styling */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #08412b, #1d9236);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background: linear-gradient(135deg, #1d9236, #4caf50);
+    transform: translateY(-3px);
+}
+
+/* Error message styling */
+#error-message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ff4d4d;
+    display: none; /* Initially hidden */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="userId" placeholder="Enter User ID" required />
+            <input type="password" id="password" placeholder="Enter Password" required />
+            <button type="submit">Sign in</button>
+        </form>
+        <div id="error-message"></div>
+
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
