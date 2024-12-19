@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="csexp.css">
-    <script src="csexp.js"></script>
+    <link rel="stylesheet" href="casestudyemp0.css">
+    <script src="csexp.js" defer></script>
 </head>
 <body>
-
     <header>
-        <span class="menu-icon" onclick="openNav()">☰</span>
+        <span class="menu-icon" id="menuIcon">☰</span>
         <h1>Employee Data Management System</h1>
     </header>
 
     <div id="mySidenav" class="sidenav">
-        <div class="closebtn" >
-       <a href="javascript:void(0)"  onclick="closeNav()">&times;</a>
-    </div>
-    <div class="profile">
-        <img src="profile-icon.png" alt="User " class="profile-img">
-        <p class="user-name">User </p> <!-- This will be updated with the user's name -->
-    </div>
-        
+        <div class="closebtn">
+            <a href="javascript:void(0)" id="closeNavButton">&times;</a>
+        </div>
+        <div class="profile">
+            <img src="profile-icon.png" alt="User" class="profile-img">
+            <p class="user-name" id="userName">User</p>
+        </div>
         <div class="sidenav1">
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="javascript:void(0)" onclick="showLogout()">Logout</a>
+            <a href="/Casestudy/about.html">About</a>
+            <a href="/Casestudy/contact.html">Contact</a>
+            <a href="javascript:void(0)" id="logoutLink">Logout</a>
+        </div>
     </div>
-    </div>
+
     <div class="container">
         <div class="emp-details">
-            <form>
+            <form id="searchForm">
                 <table>
                     <tr>
                         <td>Employee ID:</td>
@@ -52,13 +50,13 @@
                     </tr>
                     <tr>
                         <td>Date of Joining:</td>
-                        <td><input type="date" name="jd"></td>
+                        <td><input type="date" id="dateoj" name="jd"></td>
                     </tr>
                     <tr>
                         <td>Grade:</td>
                         <td>
-                            <select name="grade">
-                                <option value="">Select Grade</option> 
+                            <select id="grd" name="grade">
+                                <option value="">Select Grade</option>
                                 <option value="M1">M1</option>
                                 <option value="M2">M2</option>
                                 <option value="M3">M3</option>
@@ -68,21 +66,20 @@
                 </table>
             </form>
             <div class="center-container">
-                <button id="search" class="search-button">Search</button>
+                <button id="searchButton" class="search-button">Search</button>
             </div>
         </div>
 
         <div class="search-results">
             <h2>Search Results</h2>
-            <table id="employee-table"></table>
-            <button type="button" id="back-from-serachresults">Back</button>             
+            <table id="employeeTable"></table>
+            <button type="button" id="backButton">Back</button>
         </div>
     </div>
 
-    <!-- Modify Employee Modal -->
     <div id="employeeModifyModal" class="employee-modal">
         <div class="employee-modal-content">
-            <span class="employee-close-button" onclick="closeModifyEmployeeModal()">&times;</span>
+            <span class="employee-close-button" id="closeModifyModalButton">&times;</span>
             <h2 class="employee-modify-title">Modify Employee Record</h2>
             <form id="modifyEmployeeForm">
                 <table class="employee-modify-table">
@@ -121,67 +118,61 @@
             </form>
         </div>
     </div>
-    <!-- View Employee Modal -->
-<div id="employeeViewModal" class="employee-modal">
-    <div class="employee-modal-content">
-        <span class="employee-close-button" onclick="closeViewEmployeeModal()">&times;</span>
-        <h2 class="employee-modify-title">View Employee Record</h2>
-        <form id="viewEmployeeForm">
-            <table class="employee-modify-table">
-                <tr>
-                    <td>Employee ID</td>
-                    <td><input type="text" id="viewEmployeeId" readonly></td>
-                </tr>
-                <tr>
-                    <td>First Name</td>
-                    <td><input type="text" id="viewFirstName" readonly></td>
-                </tr>
-                <tr>
-                    <td>Last Name</td>
-                    <td><input type="text" id="viewLastName" readonly></td>
-                </tr>
-                <tr>
-                    <td>Date of Birth</td>
-                    <td><input type="date" id="viewDob" readonly></td>
-                </tr>
-                <tr>
-                    <td>Date of Joining</td>
-                    <td><input type="date" id="viewDoj" readonly></td>
-                </tr>
-                <tr>
-                    <td>Grade</td>
-                    <td >
-                        <select id="viewGrade" disabled>
-                            <option value="M1">M1</option>
-                            <option value="M2">M2</option>
-                            <option value="M3">M3</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <button type="button" id="viewBackButton" class="view-back-button">Back</button>
-    </div> 
-</div> 
 
-<div id="popup" style="display: none;">
-    <div class="logout-btn" id="logoutDiv" style="display: none;">
-        <h2>Are you sure you want to logout?</h2>
-        <!-- Buttons styled inline -->
-        <div class="button-container">
-            <button class="logout-button" onclick="logout()">Logout</button>
-            <button class="close-button" onclick="closePopup()">Close</button>
+    <div id="employeeViewModal" class="employee-modal">
+        <div class="employee-modal-content">
+            <span class="employee-close-button" id="closeViewModalButton">&times;</span>
+            <h2 class="employee-modify-title">View Employee Record</h2>
+            <form id="viewEmployeeForm">
+                <table class="employee-modify-table">
+                    <tr>
+                        <td>Employee ID</td>
+                        <td><input type="text" id="viewEmployeeId" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" id="viewFirstName" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" id="viewLastName" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td><input type="date" id="viewDob" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Joining</td>
+                        <td><input type="date" id="viewDoj" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Grade</td>
+                        <td>
+                            <select id="viewGrade" disabled>
+                                <option value="M1">M1</option>
+                                <option value="M2">M2</option>
+                                <option value="M3">M3</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>
-</div>
 
-<!-- Optional Background Overlay -->
-<div id="overlay" style="display: none;" onclick="closePopup()"></div>
-
+    <div id="popup" style="display: none;">
+        <div class="logout-btn" id="logoutDiv" style="display: none;">
+            <h2>Are you sure you want to logout?</h2>
+            <div class="button-container">
+                <button class="logout-button" id="confirmLogoutButton">Logout</button>
+                <button class="close-button" id="closePopupButton">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="overlay" style="display: none;"></div>
 
     <footer>
         &copy; 2024 Company Name. All Rights Reserved.
     </footer>
 </body>
 </html>
-<!-- onclick="showPopup()" -->

@@ -26,8 +26,6 @@ function showLogout() {
 }
 
 function logout() {
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
     sessionStorage.removeItem("loggedIn");
     window.location.href = "login.html";
 }

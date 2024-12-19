@@ -15,6 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         sessionStorage.setItem("userName", users[userId].name); 
         window.location.href = "casestudyemp.html"; 
     } else {
+        document.getElementById('signin').style.display = 'none';
         errorMessage.innerHTML = `
         <p style="color: red; font-size: 14px; text-align: center;">Wrong username or password.</p>
         <button onclick="resetForm()" style="display: block; margin: 10px auto;">Try Again</button>`;
@@ -22,6 +23,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 });
 
 function resetForm() {
+    document.getElementById('signin').style.display = 'block';
     document.getElementById('loginForm').reset();
     document.getElementById('error-message').innerHTML = '';
 }
