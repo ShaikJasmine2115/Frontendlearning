@@ -70,6 +70,7 @@ function displayUserProfile(username) {
             });
     }
 }
+
 function displayAllDetails(username) {
     const profileContainer = document.getElementById('profile-container');  
     const modal = document.getElementById("userModifyModal");
@@ -101,6 +102,7 @@ function displayAllDetails(username) {
                 .catch(error => console.error('Error fetching user data:', error));      
             }      
         } 
+        
 function updateDetails(username) {
         const profileContainer = document.getElementById('profile-container');
         profileContainer.style.display='none';
