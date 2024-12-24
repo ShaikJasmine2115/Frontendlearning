@@ -32,7 +32,7 @@ function authenticateUser(username, password) {
             if (user) {
                     sessionStorage.setItem("loggedIn", "true");
                     sessionStorage.setItem("userName", username); 
-                    window.location.href = "postlogin.html";    
+                    window.location.href = "index.html";    
             } else {
                 document.getElementById('login').style.display = 'none';
                 errorMessage.innerHTML = `<p>Wrong username or password.</p>

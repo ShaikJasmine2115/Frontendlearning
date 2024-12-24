@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <link rel="stylesheet" href="postlogin.css">
+</head>
+<body>
+    <header>
+        <h1>USER MANAGEMENT SYSTEM</h1>
+        <nav>
+            <ul>
+                <div class="center-container">
+                    <li><span class="hamburger" id="hamburger-menu" ></span></li>
+                    <ul id="profile-list" style="display: none;">
+                        <li class="nav-item" id="profile" data-info="Basic details of the user">Profile</li>
+                        <li class="nav-item" id="view" data-info="View user details">View</li>
+                        <li class="nav-item" id="modify">Modify</li>
+                        <li><button class="logout-button" id="logout-button">Logout</button></li>
+                    </ul>
+                </div>
+            </ul>            
+        </nav>      
+      </header>
+      <div class="spacerh"></div>
+      <div class="display">
+      <div id="displayUsername"></div> <br>
+      <div id="profile-container" style="display: none;"></div>
+      </div>
+    <div id="userModifyModal" class="user-modal" style="display: none;">
+        <div class="user-modal-content">
+             <span class="user-close-button" onclick="closeModifyUserModal()">&times;</span>
+            <h2 class="user-modify-title">Modify User Details</h2>
+            <form id="modifyUserForm">
+                <table class="user-modify-table">
+                    <tr>
+                        <td>User name </td>
+                        <td><input type="text" id="username" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Email <span class="user-required">*</span></td>
+                        <td><input type="email" id="email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Phone number <span class="user-required">*</span></td>
+                        <td><input type="text" id="phoneno" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password <span class="user-required">*</span></td>
+                        <td><input type="text" id="password" required></td>
+                    </tr>
+                </table>
+                <button type="submit" class="user-save-button">Save</button>
+            </form>
+        </div>
+    </div>
+    <div id="update-dialog" class="dialog-box">
+        User updated successfully
+    </div>
+    <div class="spacerf"></div>
+      <div id="popup" style="display: none;">
+        <div class="logout-btn" id="logoutDiv" style="display: none;">
+            <h2>Are you sure you want to logout?</h2>
+            <div class="button-container">
+                <button class="logout-button" onclick="logout()">Logout</button>
+                <button class="close-button" onclick="closePopup()">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="overlay" style="display: none;" onclick="closePopup()"></div>
+    
+    <footer>
+        &copy; 2024 Annalect. All Rights Reserved.
+    </footer>
+    <script src="postlogin.js"></script>
+</body>
+</html>
