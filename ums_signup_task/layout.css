@@ -1,4 +1,5 @@
 * {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,11 +17,13 @@ body, html {
         "sidebar footer";
     height: 100%;
 }
-
 header {
     grid-area: header;
+    color: white;
     background-color: #a091ad;
     text-align: center;
+    font-size: 28px;
+    
     padding: 1rem;
 }
 .sidebar {
@@ -31,10 +34,10 @@ header {
 }
 main {
     grid-area: main;
-    background-color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    background-color: white;
 }
 footer {
     grid-area: footer;
@@ -42,7 +45,9 @@ footer {
     text-align: center;
     padding: 1rem;
 }
-/* Form Styling */
+.form-container{
+    margin:0 50px ;
+}
 .form {
     display: flex;
     flex-direction: column;
@@ -50,47 +55,61 @@ footer {
     padding: 20px;
     background-color: #f4f4f9;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
     width: 300px;
 }
-
 #register-form h2 {
     font-size: 24px;
     color: #4b4b4b;
     margin-bottom: 15px;
 }
-
 input {
-    width: 100%;
+width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px ;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
 }
-
-input:focus {
-    border-color: #a091ad;
-    outline: none;
-}
-
 #registerbtn {
     width: 100%;
     text-align: center;
 }
-
 #register {
     background-color: #a091ad;
     color: white;
     padding: 10px;
     border: none;
-    width: 100%;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
 }
-
 #register:hover {
     background-color: #8f7d8c;
 }
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.image-container{
+    margin: 0;
+    padding:0;
+    height: 100%;
+}
+button {
+    background-color: #a091ad;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+#error-message {
+    color:red; 
+    font-size: 14px; 
+    text-align: center;
+    }

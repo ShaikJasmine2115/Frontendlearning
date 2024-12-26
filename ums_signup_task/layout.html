@@ -9,20 +9,28 @@
 <body>
     <div class="container">
         <header>User Management System</header>
-        <aside class="sidebar">Menu</aside>
+        <aside class="sidebar"></aside>
         <main>
-            <form id="register-form" class="form">
+            <div class="image-container">
+                <img src="/ums_signup_task/signup.jpg" alt="Description of image" />
+            </div>
+            <div class="form-container">
+            <form class="form" id="register-form" >
                 <h2>Register</h2> <br>
-                <input type="text" id="register-username" placeholder="Username" >
-                <input type="email" id="register-email" placeholder="Email" >
-                <input type="password" id="register-password" placeholder="Password" >
-                <div id="registerbtn"><button id="register" type="submit" onclick="closeSidebar()">Register</button></div>
+                <input type="text" id="register-userfirstname" placeholder="First name" required>
+                <input type="text" id="register-userlastname" placeholder="Last name" required>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Password" required >
+                <div id="registerbtn"><button id="register" type="submit">Register</button></div>
+                <div id="error-message"></div>
             </form>
+           
+        </div>
         </main>
         <footer>
             &copy; 2024 Annalect. All Rights Reserved.
         </footer>
     </div>
-    
+<script src="layout.js"></script>
 </body>
 </html>

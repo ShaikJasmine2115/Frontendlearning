@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <link rel="stylesheet" href="postlogin.css">
+</head>
+<body>
+    <body>
+        <div class="container">
+            <header>User Management System</header>
+            <aside class="sidebar"></aside>
+            <main>
+                <div class="display">
+                <div id="displayUsername"></div> <br>
+            </div>
+            </main>
+            <footer>
+                &copy; 2024 Annalect. All Rights Reserved.
+            </footer>
+        </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {  
+            const userfirstname = sessionStorage.getItem('userfirstname');
+            const userlastname = sessionStorage.getItem("userlastname");
+            const email =sessionStorage.getItem("email");
+            const password =sessionStorage.getItem("password"); 
+            document.getElementById('displayUsername').textContent = `Welcome, ${userfirstname}!`;  
+            console.log(userfirstname,userlastname, email, password);
+          });
+    </script>
+</body>
+</html>
