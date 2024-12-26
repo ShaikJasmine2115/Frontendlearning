@@ -24,7 +24,9 @@ function closeModifyUserModal() {
     modal.style.display = 'none';
 }
 document.addEventListener('DOMContentLoaded', () => {  
-    const username = sessionStorage.getItem('userName');    
+    const username = sessionStorage.getItem('userName'); 
+    const userdata= sessionStorage.getItem("userData");    
+    const user=JSON.parse(userdata);
     document.getElementById('displayUsername').textContent = `Welcome, ${username}!`;  
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const profileList = document.getElementById('profile-list');  
@@ -32,104 +34,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const view = document.getElementById('view');    
     const modify=document.getElementById('modify');  
     const logout=document.getElementById('logout-button');
-    displayuserimage(username,hamburgerMenu);
 
+    displayuserimage(user,hamburgerMenu);
       hamburgerMenu.addEventListener('click', function () {
         profileList.style.display = profileList.style.display === 'none' ? 'block' : 'none';
     });
+    profile.addEventListener('click', () => {
+        displayUserProfile(user);     
+    });  
       view.addEventListener('click',()=>{        
-      displayAllDetails(username);     
-  });    
-      profile.addEventListener('click', () => {
-      displayUserProfile(username);     
-  });      
+      displayAllDetails(user);     
+    });             
       modify.addEventListener('click',()=>{        
-      updateDetails(username);     
-  }); 
+      updateDetails(user);     
+     }); 
       logout.addEventListener('click',()=>{
       showLogout();
-  });
-
-
+     });
 });
-function displayuserimage(username,hamburgerMenu){ 
-        fetch('https://dummyjson.com/users')
-            .then(response => response.json())
-            .then(data => {
-                const user = data.users.find(user => user.username === username);
-                if (user) {
-                    const userImage = user.image;
-                    const profileImageElement = document.createElement('img');
-                    profileImageElement.src = userImage;
-                    profileImageElement.alt = 'User Icon';
-                    profileImageElement.className = 'user-icon';
-                    hamburgerMenu.prepend(profileImageElement);  
-                }
-            })
-            .catch(error => alert('API error.Try again later') );         
+function displayuserimage(user,hamburgerMenu){ 
+    const userImage = user.image;
+    const profileImageElement = document.createElement('img');
+    profileImageElement.src = userImage;
+    profileImageElement.alt = 'User Icon';
+    profileImageElement.className = 'user-icon';
+    hamburgerMenu.prepend(profileImageElement);                    
 }
-function displayUserProfile(username) {
+function displayUserProfile(user) {
     const profileContainer = document.getElementById('profile-container');  
     const modal = document.getElementById("userModifyModal");
     modal.style.display = 'none';
-    if (username) {
-        fetch('https://dummyjson.com/users')
-            .then(response => response.json())
-            .then(data => {
-                const user = data.users.find(user => user.username === username);
-                if (user) {       
-                    const { firstName, lastName, age, gender, email, phone, image } = user;
-                    profileContainer.style.display = 'block';
-                    profileContainer.innerHTML = `
-                        <img src="${image}" alt="${firstName} ${lastName}">
-                        <h2>${firstName} ${lastName}</h2>
-                        <p>Age: ${age}</p>
-                        <p>Gender: ${gender}</p>
-                        <p>Email: ${email}</p>
-                        <p>Phone: ${phone}</p>
-                    `;
-                } else {
-                    profileContainer.innerHTML = '<p>User not found.</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching user data:', error);
-                profileContainer.innerHTML = '<p>Failed to load user profile.</p>';
-            });
+    if (user) {       
+        const { firstName, lastName, age, gender, email, phone, image } = user;
+        profileContainer.style.display = 'block';
+        profileContainer.innerHTML = `
+            <img src="${image}" alt="${firstName} ${lastName}">
+            <h2>${firstName} ${lastName}</h2>
+            <p>Age: ${age}</p>
+            <p>Gender: ${gender}</p>
+            <p>Email: ${email}</p>
+            <p>Phone: ${phone}</p>
+        `;
+    } else {
+        profileContainer.innerHTML = '<p>User not found.</p>';
     }
 }
-function displayAllDetails(username) {
-    const profileContainer = document.getElementById('profile-container');  
-    const modal = document.getElementById("userModifyModal");
-    modal.style.display = 'none';
-    if (username) {
-        fetch('https://dummyjson.com/users')
-            .then(response => response.json())
-            .then(data => {
-                const user = data.users.find(user => user.username === username);
-                if (user) {
-                    const { firstName, lastName, age, gender, email, phone, ...additionalInfo } = user;
-                    profileContainer.innerHTML = `
-                    <h2>${firstName} ${lastName}</h2>
-                    <p>Age: ${age}</p>
-                    <p>Gender: ${gender}</p>
-                    <p>Email: ${email}</p>
-                    <p>Phone: ${phone}</p>
-                  `;
-                  for (const [key, value] of Object.entries(additionalInfo)) {
-                    const infoElement = document.createElement('p');
-                    infoElement.textContent = `${key}: ${JSON.stringify(value)}`;
-                    profileContainer.appendChild(infoElement);
-                  }
-                }
-                else {
-                    console.error('User not found');
-                  }
-                }) 
-                .catch(error => console.error('Error fetching user data:', error));      
-            }      
+function displayAllDetails(user) {
+    sessionStorage.setItem("userData", JSON.stringify(user));
+    window.open("viewpage.html");    
         } 
-function updateDetails(username) {
+function updateDetails(user) {
         const profileContainer = document.getElementById('profile-container');
         profileContainer.style.display='none';
         const modal = document.getElementById("userModifyModal");
@@ -137,55 +91,49 @@ function updateDetails(username) {
         const emailField = document.getElementById("email");
         const phoneField = document.getElementById("phoneno");
         const passwordField = document.getElementById("password");
-        nameField.value = username;
+        nameField.value = user.username;
         modal.style.display = 'block';
-        fetch('https://dummyjson.com/users')
-            .then(response => response.json())
-            .then(data => {
-                 const user = data.users.find(user => user.username === username);
-                 if (user) {
-                        emailField.value = user.email || '';
-                        phoneField.value = user.phone || '';
-                        passwordField.value = user.password || '';
-                        const modifyUserForm = document.getElementById("modifyUserForm");
-                        modifyUserForm.addEventListener("submit", (event) => {
-                            event.preventDefault();
-                            const updatedData = {
-                                username: user.username,
-                                email: emailField.value,
-                                phone: phoneField.value,
-                                password: passwordField.value,
-                            };
-                            const updateUrl = `https://dummyjson.com/users/${user.id}`;
-                            fetch(updateUrl, {
-                                method: 'PUT',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(updatedData),
-                            })
-                                .then(res => res.json())
-                                .then(updatedUser => {
-                                    const updateDialog = document.getElementById('update-dialog');
-                                    updateDialog.style.display = 'block';
-                                    setTimeout(() => {
-                                        updateDialog.style.opacity = '0';
-                                        updateDialog.addEventListener('transitionend', () => {
-                                            updateDialog.style.display = 'none';
-                                        }, { once: true });
-                                    }, 2000);
-                                    console.log('User updated successfully:', updatedUser);
-                                    modal.style.display = 'none'; 
-                                })
-                                .catch(error => {
-                                    console.error('Error updating user:', error);
-                                });
-                        });
-                    } else {
-                        console.error('User not found');
-                    }
+        if (user) {
+            emailField.value = user.email || '';
+            phoneField.value = user.phone || '';
+            passwordField.value = user.password || '';
+            const modifyUserForm = document.getElementById("modifyUserForm");
+            modifyUserForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const updatedData = {
+                    username: user.username,
+                    email: emailField.value,
+                    phone: phoneField.value,
+                    password: passwordField.value,
+                };
+                const updateUrl = `https://dummyjson.com/users/${user.id}`;
+                fetch(updateUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedData),
                 })
-                .catch(error => console.error('Error fetching users:', error));
+                    .then(res => res.json())
+                    .then(updatedUser => {
+                        const updateDialog = document.getElementById('update-dialog');
+                        updateDialog.style.display = 'block';
+                        setTimeout(() => {
+                            updateDialog.style.opacity = '0';
+                            updateDialog.addEventListener('transitionend', () => {
+                                updateDialog.style.display = 'none';
+                            }, { once: true });
+                        }, 2000);
+                        console.log('User updated successfully:', updatedUser);
+                        modal.style.display = 'none'; 
+                    })
+                    .catch(error => {
+                        console.error('Error updating user:', error);
+                    });
+            });
+        } else {
+            console.error('User not found');
         }
+    }
         
         

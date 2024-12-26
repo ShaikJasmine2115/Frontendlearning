@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <style>
+        body {
+            background-image: url(/ums_sample/loginbg.jpg);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        header {
+            position: absolute;
+            background-color: #840533;
+            color: white;
+            padding: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            box-sizing: border-box;
+        }
+        main {
+            margin-top: 200px; 
+            height: 100%;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+        footer {
+            position: fixed;
+            background-color: #9b6c7d;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            color: white;
+            z-index: 1000;
+            box-sizing: border-box;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3,1fr);
+            gap: 20px;
+            margin: 100px auto 0;
+            max-width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .profile-grid div {
+            font-size: 1.1em;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .profile-grid label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>USER MANAGEMENT SYSTEM</h1>
+        <h2>USER DETAILS</h2>
+        <span class="icon" id="image-icon" ></span>
+    </header>
+    <main>
+    <div class="profile-grid">
+        <div><label>User ID: </label><span id="userId"></span></div>
+        <div><label>First Name: </label><span id="firstName"></span></div>
+        <div><label>Last Name: </label><span id="lastName"></span></div>
+        <div><label>Maiden Name: </label><span id="maidenName"></span></div>       
+        <div><label>Gender: </label><span id="gender"></span></div>
+        <div><label>Age: </label><span id="age"></span></div>
+        <div><label>Birth Date: </label><span id="birthDate"></span></div>    
+        <div><label>Role: </label><span id="role"></span></div>
+        <div><label>University: </label><span id="university"></span></div>
+        <div><label>Email: </label><span id="email"></span></div>
+        <div><label>Phone: </label><span id="phone"></span></div>       
+        <div><label>Address: </label><span id="address"></span></div>             
+    </div>
+    </main>
+    <footer>
+        &copy; 2024 Annalect. All Rights Reserved.
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageIcon = document.getElementById('image-icon');     
+            const userdata = sessionStorage.getItem("userData");
+            const user = JSON.parse(userdata);
+            displayuserimage(user,imageIcon);
+            document.getElementById("userId").textContent = user.id;
+            document.getElementById("firstName").textContent = user.firstName;
+            document.getElementById("lastName").textContent = user.lastName;
+            document.getElementById("maidenName").textContent = user.maidenName? user.maidenName : " - ";;
+            document.getElementById("email").textContent = user.email;
+            document.getElementById("phone").textContent = user.phone;
+            document.getElementById("age").textContent = user.age;
+            document.getElementById("gender").textContent = user.gender;
+            document.getElementById("birthDate").textContent = user.birthDate;
+            document.getElementById("university").textContent = user.university;
+            document.getElementById("address").textContent = user.address.address +", " + user.address.city + ", " + user.address.state + ", " + user.address.country;
+            document.getElementById("role").textContent = user.role;
+        });
+        function displayuserimage(user,imageIcon){ 
+            const userImage = user.image;
+            const profileImageElement = document.createElement('img');
+            profileImageElement.src = userImage;
+            profileImageElement.alt = 'User Icon';
+            profileImageElement.className = 'user-icon';
+            imageIcon.prepend(profileImageElement);                    
+        }
+    </script>
+</body>
+</html>

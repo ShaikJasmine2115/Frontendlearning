@@ -32,6 +32,8 @@ function authenticateUser(username, password) {
             if (user) {
                     sessionStorage.setItem("loggedIn", "true");
                     sessionStorage.setItem("userName", username); 
+                    sessionStorage.setItem("userData", JSON.stringify(user));
+                    //console.log(user);
                     window.location.href = "postlogin.html";    
             } else {
                 document.getElementById('login').style.display = 'none';
