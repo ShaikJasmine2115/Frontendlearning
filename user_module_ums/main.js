@@ -25,11 +25,19 @@ function closeModifyUserModal() {
 }
 document.addEventListener('DOMContentLoaded', () => {  
     const username = sessionStorage.getItem('userName');    
-    document.getElementById('displayUsername').textContent = `Welcome, ${username}!`;    
+    document.getElementById('displayUsername').textContent = `Welcome, ${username}!`;  
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const profileList = document.getElementById('profile-list');  
     const profile = document.getElementById('profile');    
     const view = document.getElementById('view');    
-    const modify=document.getElementById('modify');    
-    view.addEventListener('click',()=>{        
+    const modify=document.getElementById('modify');  
+    const logout=document.getElementById('logout-button');
+    displayuserimage(username,hamburgerMenu);
+
+      hamburgerMenu.addEventListener('click', function () {
+        profileList.style.display = profileList.style.display === 'none' ? 'block' : 'none';
+    });
+      view.addEventListener('click',()=>{        
       displayAllDetails(username);     
   });    
       profile.addEventListener('click', () => {
@@ -38,8 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
       modify.addEventListener('click',()=>{        
       updateDetails(username);     
   }); 
-});
+      logout.addEventListener('click',()=>{
+      showLogout();
+  });
 
+
+});
+function displayuserimage(username,hamburgerMenu){ 
+        fetch('https://dummyjson.com/users')
+            .then(response => response.json())
+            .then(data => {
+                const user = data.users.find(user => user.username === username);
+                if (user) {
+                    const userImage = user.image;
+                    const profileImageElement = document.createElement('img');
+                    profileImageElement.src = userImage;
+                    profileImageElement.alt = 'User Icon';
+                    profileImageElement.className = 'user-icon';
+                    hamburgerMenu.prepend(profileImageElement);  
+                }
+            })
+            .catch(error => alert('API error.Try again later') );         
+}
 function displayUserProfile(username) {
     const profileContainer = document.getElementById('profile-container');  
     const modal = document.getElementById("userModifyModal");
@@ -70,7 +98,6 @@ function displayUserProfile(username) {
             });
     }
 }
-
 function displayAllDetails(username) {
     const profileContainer = document.getElementById('profile-container');  
     const modal = document.getElementById("userModifyModal");
@@ -102,7 +129,6 @@ function displayAllDetails(username) {
                 .catch(error => console.error('Error fetching user data:', error));      
             }      
         } 
-        
 function updateDetails(username) {
         const profileContainer = document.getElementById('profile-container');
         profileContainer.style.display='none';
