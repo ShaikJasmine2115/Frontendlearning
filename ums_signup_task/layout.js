@@ -34,13 +34,13 @@ function resetForm() {
      document.getElementById('register').style.display = 'block';
 }
 // function closeSidebar() {
-//     document.querySelector('.container').style.gridTemplateColumns = '1fr 1fr';  // Adjust grid layout
-//     document.querySelector('.sidebar').style.display = 'none';  // Hide the sidebar
+//     document.querySelector('.container').style.gridTemplateColumns = '1fr 1fr';  
+//     document.querySelector('.sidebar').style.display = 'none'; 
 // }
 //     
 // 
 // function openSidebar() {
-//     document.querySelector('.container').style.gridTemplateColumns = '250px 1fr'; // Restore original layout when sidebar is open
+//     document.querySelector('.container').style.gridTemplateColumns = '250px 1fr'; 
 // }
 
   
