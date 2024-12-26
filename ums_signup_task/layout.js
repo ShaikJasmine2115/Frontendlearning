@@ -1,6 +1,3 @@
-document.addEventListener('DOMContentLoaded',()=>{
-  console.log("entered");
-});
 document.getElementById('register-form').addEventListener('submit', function(event) {
     event.preventDefault(); 
     const email = document.getElementById('register-email').value;
@@ -8,7 +5,6 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     const userlastname = document.getElementById('register-userlastname').value;
     const password = document.getElementById('register-password').value;
     const errorMessage = document.getElementById('error-message');
-    
     
     var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailPattern.test(email)) {
@@ -25,8 +21,6 @@ document.getElementById('register-form').addEventListener('submit', function(eve
         sessionStorage.setItem("password", password);          
         window.location.href = "postlogin.html";
     }
-    
-    // registerUser(userfirstname,userlastname, email, password);
 });
 function resetForm() {
      document.getElementById('register-form').reset();
@@ -34,13 +28,13 @@ function resetForm() {
      document.getElementById('register').style.display = 'block';
 }
 // function closeSidebar() {
-//     document.querySelector('.container').style.gridTemplateColumns = '1fr 1fr';  // Adjust grid layout
-//     document.querySelector('.sidebar').style.display = 'none';  // Hide the sidebar
+//     document.querySelector('.container').style.gridTemplateColumns = '1fr 1fr';  
+//     document.querySelector('.sidebar').style.display = 'none'; 
 // }
 //     
 // 
 // function openSidebar() {
-//     document.querySelector('.container').style.gridTemplateColumns = '250px 1fr'; // Restore original layout when sidebar is open
+//     document.querySelector('.container').style.gridTemplateColumns = '250px 1fr'; 
 // }
 
   
