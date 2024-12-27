@@ -24,16 +24,24 @@ function closeModifyUserModal() {
     modal.style.display = 'none';
 }
 document.addEventListener('DOMContentLoaded', () => {  
-    const username = sessionStorage.getItem('userName'); 
-    const userdata= sessionStorage.getItem("userData");    
-    const user=JSON.parse(userdata);
-    document.getElementById('displayUsername').textContent = `Welcome, ${username}!`;  
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-    const profileList = document.getElementById('profile-list');  
-    const profile = document.getElementById('profile');    
-    const view = document.getElementById('view');    
-    const modify=document.getElementById('modify');  
-    const logout=document.getElementById('logout-button');
+    if (sessionStorage.getItem('userfirstname')){
+        const userfirstname = sessionStorage.getItem('userfirstname'); 
+        document.getElementById('displayUsername').textContent = `Welcome, ${userfirstname}!`;
+        sessionStorage.removeItem('userfirstname');
+    }
+    if(sessionStorage.getItem('userName')){
+        const username = sessionStorage.getItem('userName');
+        sessionStorage.removeItem('userName');
+        const userdata= sessionStorage.getItem("userData");    
+        const user=JSON.parse(userdata);
+        document.getElementById('displayUsername').textContent = `Welcome, ${username}!`;
+      
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const profileList = document.getElementById('profile-list');  
+        const profile = document.getElementById('profile');    
+        const view = document.getElementById('view');    
+        const modify=document.getElementById('modify');  
+        const logout=document.getElementById('logout-button');
 
     displayuserimage(user,hamburgerMenu);
       hamburgerMenu.addEventListener('click', function () {
@@ -51,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       logout.addEventListener('click',()=>{
       showLogout();
      });
+    }
 });
 function displayuserimage(user,hamburgerMenu){ 
     const userImage = user.image;

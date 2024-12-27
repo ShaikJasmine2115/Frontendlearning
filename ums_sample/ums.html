@@ -24,9 +24,10 @@
             </form>
             <form id="register-form" class="form">
                 <h2>Register</h2> <br>
-                <input type="text" id="register-username" placeholder="Username" required>
+                <input type="text" id="register-userfirstname" placeholder="First name" maxlength="15" minlength="2" required>
+                <input type="text" id="register-userlastname" placeholder="Last name" maxlength="15" minlength="2" required>
                 <input type="email" id="register-email" placeholder="Email" required>
-                <input type="password" id="register-password" placeholder="Password" required>
+                <input type="password" id="register-password" placeholder="Password" maxlength="20" minlength="8" required >
                 <div id="registerbtn"><button id="register" type="submit">Register</button></div>
             </form>
             <div id="error-message"></div>

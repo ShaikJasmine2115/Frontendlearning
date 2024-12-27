@@ -66,6 +66,18 @@
         .profile-grid label {
             font-weight: bold;
         }
+        .logout-button {
+            font-size: 20px;
+            background-color: #ff5c5c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .logout-button:hover {
+            background-color: #ff1c1c;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +85,7 @@
         <h1>USER MANAGEMENT SYSTEM</h1>
         <h2>USER DETAILS</h2>
         <span class="icon" id="image-icon" ></span>
+        <button class="logout-button" id="logout-button" onclick="logout()">Logout</button>
     </header>
     <main>
     <div class="profile-grid">
@@ -119,6 +132,9 @@
             profileImageElement.alt = 'User Icon';
             profileImageElement.className = 'user-icon';
             imageIcon.prepend(profileImageElement);                    
+        }
+        function logout() {
+             window.location.href = "ums.html";
         }
     </script>
 </body>
