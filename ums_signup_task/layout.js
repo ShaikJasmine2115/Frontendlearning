@@ -31,8 +31,6 @@ function resetForm() {
 //     document.querySelector('.container').style.gridTemplateColumns = '1fr 1fr';  
 //     document.querySelector('.sidebar').style.display = 'none'; 
 // }
-//     
-// 
 // function openSidebar() {
 //     document.querySelector('.container').style.gridTemplateColumns = '250px 1fr'; 
 // }

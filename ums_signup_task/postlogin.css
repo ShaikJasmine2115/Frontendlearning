@@ -34,9 +34,7 @@ header {
 }
 main {
     grid-area: main;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
     background-color: white;
 }
 footer {
@@ -46,6 +44,5 @@ footer {
     padding: 1rem;
 }
 #displayUsername{
-
     font-size: 28px;   
   } 
