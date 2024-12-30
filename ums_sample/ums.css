@@ -33,28 +33,24 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.3s ease-in-out;
 }
-
 .form {
     display: none;
     padding: 20px;
 }
-
 .form.active {
     display: block;
 }
-
-.form-toggle {
-    display: flex;
-    justify-content: space-evenly;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 10px;
-    margin: 10px;
-    
-    background-color: #eac9c9;
+#login-link{
+    color: #8a1741;
 }
-
+#login-link:hover{
+    color:#d34e93;
+    cursor: pointer;
+}
 button {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: #8a1741;

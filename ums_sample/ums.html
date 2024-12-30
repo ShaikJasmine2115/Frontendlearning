@@ -11,18 +11,14 @@
     <h2>WELCOME TO USER MANAGEMENT SYSTEM</h2>
 </div>
     <div class="container">
-        <div class="form-container">
-            <div class="form-toggle">
-                <button id="login-toggle">Login</button>
-                <button id="register-toggle">Register</button>
-            </div>
+        <div class="form-container">        
             <form id="login-form" class="form">
-                <h2>Login</h2> <br>
+                <h2>Validate your credentials</h2> <br>
                 <input type="text" id="login-username" placeholder="Username" required>
                 <input type="password" id="login-password" placeholder="Password" required>
                 <div id="loginbtn"><button id="login" type="submit">Login</button></div>
             </form>
-            <form id="register-form" class="form">
+            <form id="register-form" class="form" >
                 <h2>Register</h2> <br>
                 <input type="text" id="register-userfirstname" placeholder="First name" maxlength="15" minlength="2" required>
                 <input type="text" id="register-userlastname" placeholder="Last name" maxlength="15" minlength="2" required>
@@ -31,6 +27,8 @@
                 <div id="registerbtn"><button id="register" type="submit">Register</button></div>
             </form>
             <div id="error-message"></div>
+            <button id="register-toggle">New user? Sign up here!</button>
+            <span onclick="loginlink()" id="login-link" style="display: none;">Back to login</span>  <br>        
         </div>
     </div>
     <script src="ums.js"></script>
