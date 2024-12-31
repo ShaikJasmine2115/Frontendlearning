@@ -63,7 +63,7 @@ function registerUser(userfirstname,userlastname, email, password) {
     if (!emailPattern.test(email)) {
       document.getElementById('register').style.display = 'none';
       errorMessage.innerHTML = `<p>Please enter a valid email address.</p>
-                <button id="tryagain" onclick="resetregForm()" style="display: block; margin: 10px auto;">Try Again</button>`;
+                <button id="tryagain" onclick="resetregForm()" style="display: block; margin: 10px auto; ">Try Again</button>`;
     }
     else{
         sessionStorage.setItem("loggedIn", "true");
