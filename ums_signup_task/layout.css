@@ -9,26 +9,32 @@ body, html {
 }
 .container {
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 250px 1fr 250px ;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 
-        "sidebar header"
-        "sidebar main"
-        "sidebar footer";
+        "leftsidebar header rightsidebar"
+        "leftsidebar main rightsidebar"
+        "leftsidebar footer rightsidebar";
     height: 100%;
 }
 header {
     grid-area: header;
     color: white;
-    background-color: #a091ad;
+    background-color: rgb(53, 4, 50);
     text-align: center;
     font-size: 28px;
     
     padding: 1rem;
 }
-.sidebar {
-    grid-area: sidebar;
-    background-color: #bab1c2;
+.leftsidebar {
+    grid-area: leftsidebar;
+    background-color: rgb(53, 4, 50);
+    padding: 1rem;
+    text-align: center;
+}
+.rightsidebar {
+    grid-area: rightsidebar;
+    background-color:rgb(53, 4, 50);
     padding: 1rem;
     text-align: center;
 }
@@ -37,11 +43,12 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: rgb(53, 4, 50);
 }
 footer {
     grid-area: footer;
-    background-color: #a091ad;
+    color: white;
+    background-color: rgb(53, 4, 50);
     text-align: center;
     padding: 1rem;
 }
@@ -113,3 +120,4 @@ button {
     font-size: 14px; 
     text-align: center;
     }
+    /* #a091ad/ */
