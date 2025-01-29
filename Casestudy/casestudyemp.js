@@ -1,8 +1,8 @@
-window.onload = function() {
-    if (!sessionStorage.getItem("loggedIn")) {
-            window.location.href = "login.html"; 
-    }
-};
+// window.onload = function() {
+//     if (!sessionStorage.getItem("loggedIn")) {
+//             window.location.href = "login.html"; 
+//     }
+// };
 const employees = [
     { id: '5001', firstName: 'Jane', lastName: 'Smith', dob: '2002-05-21', doj: '2024-09-14', grade: 'M1' },
     { id: '5002', firstName: 'John', lastName: 'Doe', dob: '1998-05-06', doj: '2023-08-30', grade: 'M2' },
