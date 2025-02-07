@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Sample{
+
+            static count=0;
+            
+            constructor(name){
+                this.name=name;
+                Sample.count++;
+            }
+
+            static printcount(){
+                return Sample.count;
+            }
+        }
+        const user1= new Sample("Jasmine");
+        const user2= new Sample("Jaan");
+        const user3= new Sample("Jyo");
+        console.log(user1.name);
+        console.log(user2.name);
+        console.log(user3.name);
+        //console.log(Sample.count);
+        console.log(Sample.printcount());
+
+    </script>
+</body>
+</html>

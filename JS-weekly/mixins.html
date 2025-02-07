@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            const canEat = {
+                eat() {
+                    console.log(`${this.name} is eating.`);
+                },
+                };
+                
+            const canWalk = {
+                walk() {
+                    console.log(`${this.name} is walking.`);
+                },
+                };
+                
+                // Class using mixins
+                class Person {
+                constructor(name) {
+                    this.name = name;
+                }
+                }
+                
+                // Apply the mixins
+                // console.log(Person.prototype);
+                Object.assign(Person.prototype, canEat, canWalk);
+                console.log(Person.prototype.__proto__.__proto__);
+                // Usage
+                const person = new Person('John');
+                person.eat(); // Output: John is eating.
+                person.walk(); // Output: John is walking
+                console.log(person.__proto__.__proto__.__proto__);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // const greaterThan = (min) => (num) => num > min;
+        function greaterThan(min){
+            return function check(num){
+                return num>min;
+            }
+        }
+
+        const isAdult = greaterThan(18);
+        const isSenior = greaterThan(60);
+
+        console.log(isAdult(20)); // Output: true
+        console.log(isSenior(20)); // Output: false
+       
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function jas(){
+            console.log(this);
+        }
+        jas();
+
+        const obj={
+            name: "jas",
+            disp(){
+                console.log(`Hey ${this.name}`)
+            }
+        }
+        obj.disp();
+
+        const obj2={
+            name: "jas",
+            display:()=>
+                console.log(`Hey ${this.name}`)           
+        }
+        obj2.display();
+
+    </script>
+</body>
+</html>

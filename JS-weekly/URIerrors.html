@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let url = "https://www.example.com/search?q=hello world";
+        let encodedUrl = encodeURI(url);
+        console.log(encodedUrl);
+// Output: "https://www.example.com/search?q=hello%20world"
+        let decodedUrl = decodeURI(encodedUrl);
+        console.log(decodedUrl);
+// Output: "https://www.example.com/search?q=hello world"
+        let malformedUrl = "https://www.example.com/search?q=hello%world";  // Invalid encoding
+        try {
+        decodedUrl = decodeURI(malformedUrl);
+        } catch (error) {
+        console.log(error);  // URIError: URI malformed
+        }
+
+    </script>
+</body>
+</html>

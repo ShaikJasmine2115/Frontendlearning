@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function addNums(...arr){
+        let sum=0;
+        arr.map((val)=>{ 
+        sum=sum+val;
+        // console.log(val);
+        // console.log(sum);
+
+        
+        })
+        return sum;
+        }
+        console.log(addNums(1,2,3,4,45))
+
+
+        const original = { a: 1, b: { c: 2 } };
+        const shallowCopy = { ...original };
+        const deepcopy=JSON.parse(JSON.stringify(original));
+        console.log(shallowCopy); 
+        console.log(deepcopy); 
+
+        shallowCopy.a = 3;
+        console.log(original.a); 
+
+        const arr1=[1,2,3]
+        const arr2=[3,4,5]
+        const newArr1=[...arr1, ...arr2]  
+        console.log(newArr1);
+       // If you want no duplication :
+        const newArr2=[new Set([...arr1, ...arr2])] //just gives a set
+        console.log(newArr2);
+        const newArr3=[...new Set([...arr1, ...arr2])] //creates an array out of the set
+        console.log(newArr3); 
+
+               
+
+        //spread operator
+        const fruits=["apple","banana","cherry"];    
+        const newFruits=[...fruits,"dates"];
+        
+        function fruitsIlike(fruits){
+            console.log(fruits);
+        }
+        fruitsIlike(newFruits);
+
+        //rest operator
+        function myVeggies(...veggy){
+            console.log(veggy);
+        }
+        myVeggies("celery","spinach");
+
+        //rest another usecase
+        const veggies=["beetroot","carrot","tomato","potato"];
+        const [like,dislike,...rest]=veggies;
+
+        function myVeggies(rest){
+            console.log(rest);
+        }
+        myVeggies(rest);
+        
+    </script>
+</body>
+</html>

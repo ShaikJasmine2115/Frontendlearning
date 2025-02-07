@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    class Person{
+
+    }
+    const person1= new Person();
+    console.log(Person.prototype);
+    console.log(person1.__proto__);
+
+    let obj={
+        name: "Jasmine",
+        city: "Coimbatore",
+        fromcity:function(){
+            console.log(this.name + " from " + this.city)
+        }
+    }    
+    console.log(Object.getPrototypeOf(obj));
+    obj.fromcity();
+    let obj1={};     
+    //obj1.__proto__= obj;
+    obj1=Object.create(obj);  
+    console.log(Object.getPrototypeOf(obj1));   
+    obj1.__proto__.fromcity();
+    obj1.name="Shaik";
+    obj1.fromcity();
+    console.log(Object.getPrototypeOf(obj1.__proto__));
+    console.log(Object.getPrototypeOf(obj1.__proto__.__proto__));
+   
+</script>
+</body>
+</html>

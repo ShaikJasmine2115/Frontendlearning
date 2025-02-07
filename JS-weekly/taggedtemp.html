@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function toUp(strings, ...values){
+            return strings.map((str, index)=>`${str.toUpperCase()}${values[index] || ""}`).join("");
+            }
+            const text =toUp` hello world`; 
+            console.log(text);
+
+
+        function santa(strings, ...values) {
+            console.log(strings);
+            console.log(values);            
+        return strings.map((str, index) => `${str.toUpperCase()}${values[index] || ""}`).join("");
+        }
+
+        const name = "John";
+        const age = 25;
+        const result = santa`My name is ${name} and I am ${age} years old.`;
+        console.log(result);
+// Output: MY NAME IS John AND I AM 25 YEARS OLD.
+
+    </script>
+</body>
+</html>

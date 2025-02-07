@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //class declaration
+        class Learner{
+            constructor(name,age,profession){
+                this.name=name;
+                this.age=age;
+                this.profession=profession;
+            }
+            prof(){               
+                console.log(`${this.name} is a ${this.profession}`);
+            }
+        }
+
+        const learner= new Learner('JASMINE',21);
+        learner.prof("FE Devoloper");
+
+        //class expression
+        const learner1=class Learner1{
+            constructor(name){
+                this.name=name;
+            }
+            nameIs(){
+                console.log(` Name is ${this.name}`);
+            }
+        }
+
+        const learnerone = new learner1("Jafar");
+        learnerone.nameIs();
+
+        //anonymous class
+        const learner2=class{
+            constructor(name){
+                this.name=name;
+            }
+            nameIs(){
+                console.log(` Name is ${this.name}`);
+            }
+        }
+
+        const learnertwo = new learner2("Javed");
+        learnertwo.nameIs();
+
+    </script>
+</body>
+</html>

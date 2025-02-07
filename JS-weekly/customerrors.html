@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validateUserRegistration(email, password) {
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailRegex.test(email)) {
+                throw new Error("The email address is invalid.");
+            }
+            if (password.length < 6) {
+                throw new Error("Password must be at least 6 characters long.");
+            }
+            return "Registration successful!";
+        }
+
+        try {
+            console.log(validateUserRegistration("invalid-email", "12345"));
+        } 
+        catch (error) {
+            console.error("Error:", error.message); // Generic error message
+        }
+
+        try {
+        console.log(validateUserRegistration("user@example.com", "12345"));
+        } catch (error) {
+        console.error("Error:", error.message); // Password validation error
+        }
+
+        try {
+        console.log(validateUserRegistration("user@example.com", "strongpassword"));
+        } catch (error) {
+        console.error("Error:", error.message); // No errors, success message will be logged
+        }
+
+    </script>
+</body>
+</html>

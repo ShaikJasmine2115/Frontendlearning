@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="onClick()">javascript </button> -->
+    <script>
+        class Sample{
+
+        #pin
+        constructor(name,age,pin){
+                this.name=name;
+                this.age=age;
+                this.#pin=pin;
+                this.#printPin();
+                // console.log(this.#pin);
+                }
+
+        #printPin(){
+            console.log(this.#pin);
+            }
+        getPin(){
+            return this.#pin;
+        }
+        
+        }
+          const forpin= new Sample("Jas",21,123);
+          const x= forpin.getPin();
+          console.log(x);
+        // function onClick(){
+        //     const x=10;
+        //     b();
+        // }
+        // function b(){
+        //     console.log("x=10");
+        // }
+        
+          
+    </script>
+</body>
+</html>

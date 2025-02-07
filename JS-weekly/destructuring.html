@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            const data = {
+            id: 123,
+            meta: {
+                createdAt: "20233023",
+                tags: ['Graduate', 'Trainee', 'Fresher'],
+                trainer: {
+                    name: "Ajay",
+                    contact : {
+                        email: "ajay.something@annalect.com",
+                        sociallinks: {
+                            twitter: "something@something.com",
+                            linkedin: "somthing@linkedin.com"
+                        }
+                    }
+                }
+            },
+
+            tasks: [
+                {
+                    title: "understanding Javascript destructuring",
+                    days: 30,
+                    comments: [
+                        {id: 1, content: "classes", trainer: 'ajay' },
+                        {id: 2, content: "objects", trainer: 'vikash' },
+                        {id: 3, content: "obj", trainer: 'vik' },
+                        {id: 4, content: "ob", trainer: 'kash' },
+
+
+                    ]
+                }
+            ]
+        }
+        const{ meta:{trainer:{contact:{sociallinks:{twitter}}}} }= data;
+        console.log(twitter);
+        const{tasks:[{comments:[sm,sm1,{trainer}]}]}=data;
+        console.log(trainer);
+    </script>
+</body>
+</html>
